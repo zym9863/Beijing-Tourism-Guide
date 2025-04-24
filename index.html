@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五一北京旅游攻略</title>
+    <!-- 引入Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #c62f2f;
+            --secondary-color: #2b6cb0;
+            --accent-color: #f0b429;
+            --dark-color: #2d3748;
+            --light-color: #f7fafc;
+            --bg-color: #f5f5f5;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: var(--bg-color);
+            background-attachment: fixed;
+            background-size: 400px;
+            background-color: rgba(245, 245, 245, 0.9);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--card-shadow);
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background-image: linear-gradient(to right, #c62f2f, #e74c3c);
+            color: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            background-image: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(198, 47, 47, 0.8), rgba(231, 76, 60, 0.8));
+            z-index: 1;
+        }
+
+        header h1, header p {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 i {
+            margin-right: 10px;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        h3 i {
+            margin-right: 10px;
+        }
+
+        .day-plan {
+            margin-bottom: 40px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .day-plan:hover {
+            transform: translateY(-5px);
+        }
+
+        .weather-info {
+            background: linear-gradient(to right, #e0f7fa, #f0f8ff);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .weather-icon {
+            font-size: 3em;
+            margin-right: 20px;
+            color: var(--accent-color);
+        }
+
+        .attraction {
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            border-left: 4px solid var(--secondary-color);
+            background-color: rgba(236, 246, 255, 0.5);
+            border-radius: 0 8px 8px 0;
+            transition: var(--transition);
+        }
+
+        .attraction:hover {
+            background-color: rgba(236, 246, 255, 0.8);
+            transform: translateX(5px);
+        }
+
+        .attraction h4 {
+            margin: 0 0 10px 0;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .attraction h4 i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+
+        .meal {
+            background: linear-gradient(to right, #fff8e1, #fffde7);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #f0b429;
+            transition: var(--transition);
+        }
+
+        .meal:hover {
+            transform: translateX(5px);
+        }
+
+        .meal h4 {
+            display: flex;
+            align-items: center;
+            color: #d97706;
+        }
+
+        .meal h4 i {
+            margin-right: 8px;
+        }
+
+        .tips {
+            background: linear-gradient(to right, #fff8e1, #fffde7);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .tips h4 {
+            margin-top: 0;
+            color: #d97706;
+            display: flex;
+            align-items: center;
+        }
+
+        .tips h4 i {
+            margin-right: 8px;
+        }
+
+        .transportation {
+            background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #4caf50;
+            transition: var(--transition);
+        }
+
+        .transportation:hover {
+            transform: translateX(5px);
+        }
+
+        .transportation p {
+            display: flex;
+            align-items: center;
+        }
+
+        .transportation i {
+            margin-right: 8px;
+            color: #4caf50;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            color: white;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 5px;
+        }
+
+        ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        section {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-map-marked-alt"></i> 五一北京旅游攻略</h1>
+            <p>根据天气合理安排，轻松愉悦的北京之旅</p>
+        </header>
+
+        <section>
+            <h2><i class="fas fa-route"></i> 行程概览</h2>
+            <p>本次北京之旅为期4天，从2025年4月24日至2025年4月27日，涵盖了北京的经典景点、文化体验和美食探索。根据天气预报和景点分布，我们精心安排了以下行程：</p>
+            <ul>
+                <li><strong>第一天（4月24日）：</strong> 天安门广场 - 故宫博物院 - 景山公园 - 王府井</li>
+                <li><strong>第二天（4月25日）：</strong> 颐和园 - 圆明园 - 北京大学 - 清华大学</li>
+                <li><strong>第三天（4月26日）：</strong> 八达岭长城 - 鸟巢(国家体育场) - 水立方(国家游泳中心)</li>
+                <li><strong>第四天（4月27日）：</strong> 天坛公园 - 南锣鼓巷 - 什刹海 - 后海</li>
+            </ul>
+        </section>
+
+        <section class="day-plan">
+            <h2><i class="fas fa-calendar-day"></i> 第一天（4月24日，星期四）</h2>
+            <div class="weather-info">
+                <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                <div>
+                    <p><strong>天气：</strong> 晴天，气温 8°C - 23°C</p>
+                    <p><strong>建议：</strong> 天气晴朗但温差较大，建议穿着轻便衣物并携带外套，注意防晒。</p>
+                </div>
+            </div>
+
+            <h3><i class="fas fa-sun"></i> 上午：天安门广场 - 故宫博物院</h3>
+            <div class="transportation">
+                <p><i class="fas fa-subway"></i> <strong>交通方式：</strong> 乘坐地铁1号线到天安门东站或天安门西站下车</p>
+            </div>
+            <div class="attraction">
+                <h4><i class="fas fa-monument"></i> 天安门广场</h4>
+                <p>作为世界上最大的城市中心广场，天安门广场是北京的象征。早晨可以观看庄严的升旗仪式（需提前查询具体时间）。广场上有人民英雄纪念碑、毛主席纪念堂等重要建筑。</p>
+                <p><strong>游览时间：</strong> 约1小时</p>
+            </div>
+            <div class="attraction">
+                <h4><i class="fas fa-landmark"></i> 故宫博物院</h4>
+                <p>世界上规模最大、保存最完整的木质结构古建筑群，中国明清两代的皇家宫殿。建议从午门进入，神武门出来，按照主轴线参观。</p>
+                <p><strong>游览时间：</strong> 约3-4小时</p>
+                <p><strong>门票信息：</strong> 旺季（4月1日-10月31日）60元/人，需提前在网上预约</p>
+                <p><strong>小贴士：</strong> 故宫内游客众多，建议提前在官网或APP预约门票，并租用讲解器了解更多历史文化背景。</p>
+            </div>
+
+            <div class="meal">
+                <h4><i class="fas fa-utensils"></i> 午餐推荐：故宫附近</h4>
+                <p>可以在故宫周边的餐厅享用午餐，如景山公园东门的老舍茶馆，品尝北京特色小吃。</p>
+            </div>
+
+            <h3><i class="fas fa-cloud-sun"></i> 下午：景山公园 - 王府井</h3>
+            <div class="attraction">
+                <h4><i class="fas fa-tree"></i> 景山公园</h4>
+                <p>位于故宫北侧的皇家园林，是俯瞰故宫全景的最佳位置。登上万春亭，可以一览北京中轴线的壮丽景色。</p>
+                <p><strong>游览时间：</strong> 约1小时</p>
+                <p><strong>门票信息：</strong> 2元/人</p>
+            </div>
+
+            <div class="transportation">
+                <p><i class="fas fa-walking"></i> <strong>交通方式：</strong> 从景山公园步行或乘坐地铁1号线到王府井站</p>
+            </div>
+
+            <div class="attraction">
+                <h4><i class="fas fa-shopping-bag"></i> 王府井步行街</h4>
+                <p>北京最著名的商业街，有各种商场、特色小吃和纪念品商店。可以在这里体验现代北京的繁华与活力，也可以品尝各种小吃。</p>
+                <p><strong>游览时间：</strong> 约2-3小时</p>
+            </div>
+
+            <div class="meal">
+                <h4><i class="fas fa-drumstick-bite"></i> 晚餐推荐：王府井美食</h4>
+                <p>可以在王府井小吃街品尝各种北京特色小吃，如驴打滚、豌豆黄、炒肝等，或者选择全聚德、东来顺等老字号餐厅品尝北京烤鸭。</p>
+            </div>
+
+            <div class="tips">
+                <h4><i class="fas fa-lightbulb"></i> 今日小贴士</h4>
+                <ul>
+                    <li>故宫参观需要大量步行，穿着舒适的鞋子很重要。</li>
+                    <li>故宫内饮食选择有限且价格较高，可以自带水和小零食。</li>
+                    <li>王府井地区游客较多，注意保管好随身物品。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-plan">
+            <h2><i class="fas fa-calendar-day"></i> 第二天（4月25日，星期五）</h2>
+            <div class="weather-info">
+                <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                <div>
+                    <p><strong>天气：</strong> 晴天，气温 11°C - 24°C</p>
+                    <p><strong>建议：</strong> 天气晴朗，适合户外活动，建议做好防晒措施。</p>
+                </div>
+            </div>
+
+            <h3>上午：颐和园</h3>
+            <div class="transportation">
+                <p><strong>交通方式：</strong> 乘坐地铁4号线到北宫门站或颐和园站下车</p>
+            </div>
+            <div class="attraction">
+                <h4>颐和园</h4>
+                <p>中国最大的皇家园林，以昆明湖和万寿山为基址，融合了江南园林的精巧与北方园林的宏伟。主要景点包括长廊、佛香阁、石舫等。</p>
+                <p><strong>游览时间：</strong> 约3-4小时</p>
+                <p><strong>门票信息：</strong> 旺季（4月1日-10月31日）30元/人，联票60元/人（包含园中主要景点）</p>
+                <p><strong>小贴士：</strong> 颐和园面积很大，可以选择乘坐园内电瓶车或游船节省体力。</p>
+            </div>
+
+            <div class="meal">
+                <h4>午餐推荐：颐和园附近</h4>
+                <p>可以在颐和园内的听鹂馆用餐，或者在北大、清华附近的餐厅就餐。</p>
+            </div>
+
+            <h3>下午：圆明园 - 北京大学 - 清华大学</h3>
+            <div class="transportation">
+                <p><strong>交通方式：</strong> 从颐和园步行或乘坐公交车到圆明园，之后可步行至北大、清华</p>
+            </div>
+            <div class="attraction">
+                <h4>圆明园</h4>
+                <p>曾经的皇家园林，被誉为"万园之园"，虽已成为遗址，但仍能感受到昔日的辉煌。</p>
+                <p><strong>游览时间：</strong> 约1.5小时</p>
+                <p><strong>门票信息：</strong> 旺季（4月1日-10月31日）25元/人</p>
+            </div>
+
+            <div class="attraction">
+                <h4>北京大学和清华大学</h4>
+                <p>中国最著名的两所高等学府，校园环境优美，历史悠久。北大的未名湖、博雅塔和清华的大礼堂、水木清华都是著名景点。</p>
+                <p><strong>游览时间：</strong> 约2小时</p>
+                <p><strong>门票信息：</strong> 免费，但需要提前在学校官网预约参观</p>
+            </div>
+
+            <div class="meal">
+                <h4>晚餐推荐：五道口美食</h4>
+                <p>五道口是大学区附近的美食聚集地，有各种风味的餐厅，可以品尝到多样化的美食。</p>
+            </div>
+
+            <div class="tips">
+                <h4>今日小贴士</h4>
+                <ul>
+                    <li>颐和园和圆明园都需要大量步行，建议穿着舒适的鞋子。</li>
+                    <li>参观大学校园需要提前在官网预约，并遵守校园规定。</li>
+                    <li>五道口地区晚上较为热闹，可以体验大学城的氛围。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-plan">
+            <h2><i class="fas fa-calendar-day"></i> 第三天（4月26日，星期六）</h2>
+            <div class="weather-info">
+                <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
+                <div>
+                    <p><strong>天气：</strong> 多云，气温 14°C - 27°C</p>
+                    <p><strong>建议：</strong> 天气较好但可能有云，登长城时注意防晒并带上薄外套。</p>
+                </div>
+            </div>
+
+            <h3>上午：八达岭长城</h3>
+            <div class="transportation">
+                <p><strong>交通方式：</strong> 从北京北站乘坐S2线列车到八达岭站，或从德胜门乘坐877路公交车</p>
+            </div>
+            <div class="attraction">
+                <h4>八达岭长城</h4>
+                <p>中国最著名的长城段落之一，也是保存最好、最具代表性的明长城。景区设施完善，交通便利。</p>
+                <p><strong>游览时间：</strong> 约3-4小时</p>
+                <p><strong>门票信息：</strong> 旺季（4月1日-10月31日）40元/人，缆车单程上行60元/人，下行40元/人</p>
+                <p><strong>小贴士：</strong> 建议乘坐缆车上山，步行下山，以节省体力。长城台阶陡峭，注意安全。</p>
+            </div>
+
+            <div class="meal">
+                <h4>午餐推荐：长城附近</h4>
+                <p>可以在八达岭长城景区内的餐厅用餐，或者带些简单的食物在景区内野餐。</p>
+            </div>
+
+            <h3>下午：奥林匹克公园（鸟巢、水立方）</h3>
+            <div class="transportation">
+                <p><strong>交通方式：</strong> 返回市区后乘坐地铁8号线或15号线到奥林匹克公园站</p>
+            </div>
+            <div class="attraction">
+                <h4>国家体育场（鸟巢）</h4>
+                <p>2008年北京奥运会的主会场，独特的建筑设计使其成为北京的新地标。</p>
+                <p><strong>游览时间：</strong> 约1小时</p>
+                <p><strong>门票信息：</strong> 外观免费，内部参观50元/人</p>
+            </div>
+
+            <div class="attraction">
+                <h4>国家游泳中心（水立方）</h4>
+                <p>2008年奥运会游泳比赛场馆，现已改造为水上乐园和冰上运动中心。</p>
+                <p><strong>游览时间：</strong> 约1小时</p>
+                <p><strong>门票信息：</strong> 外观免费，内部参观30元/人</p>
+            </div>
+
+            <div class="meal">
+                <h4>晚餐推荐：三里屯</h4>
+                <p>可以前往三里屯太古里，这里有各种国际美食和时尚餐厅，适合晚上放松享用美食。</p>
+            </div>
+
+            <div class="tips">
+                <h4>今日小贴士</h4>
+                <ul>
+                    <li>长城游览体力消耗大，建议带足水和零食，穿舒适的登山鞋。</li>
+                    <li>长城往返交通需要提前规划，特别是周末人流量大时。</li>
+                    <li>奥林匹克公园面积大，可以选择重点参观鸟巢和水立方。</li>
+                    <li>三里屯地区晚上热闹，是体验北京夜生活的好去处。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="day-plan">
+            <h2><i class="fas fa-calendar-day"></i> 第四天（4月27日，星期日）</h2>
+            <div class="weather-info">
+                <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                <div>
+                    <p><strong>天气：</strong> 晴天，气温 14°C - 25°C</p>
+                    <p><strong>建议：</strong> 天气晴朗，适合户外活动，建议做好防晒措施。</p>
+                </div>
+            </div>
+
+            <h3>上午：天坛公园</h3>
+            <div class="transportation">
+                <p><strong>交通方式：</strong> 乘坐地铁5号线到天坛东门站</p>
+            </div>
+            <div class="attraction">
+                <h4>天坛公园</h4>
+                <p>中国最大的古代祭天建筑群，主要景点包括祈年殿、回音壁、圜丘等。早晨可以看到当地居民在公园内打太极、跳广场舞等。</p>
+                <p><strong>游览时间：</strong> 约2-3小时</p>
+                <p><strong>门票信息：</strong> 旺季（4月1日-10月31日）15元/人，联票34元/人（包含园内主要景点）</p>
+            </div>
+
+            <div class="meal">
+                <h4>午餐推荐：前门大街</h4>
+                <p>可以前往前门大街品尝老北京小吃，如卤煮火烧、豆汁、炸酱面等。</p>
+            </div>
+
+            <h3>下午：南锣鼓巷 - 什刹海 - 后海</h3>
+            <div class="transportation">
+                <p><strong>交通方式：</strong> 乘坐地铁6号线或8号线到南锣鼓巷站</p>
+            </div>
+            <div class="attraction">
+                <h4>南锣鼓巷</h4>
+                <p>保存完好的传统胡同区，现已发展为集传统文化与现代时尚为一体的特色街区，有各种特色小店和美食。</p>
+                <p><strong>游览时间：</strong> 约2小时</p>
+            </div>
+
+            <div class="attraction">
+                <h4>什刹海 - 后海</h4>
+                <p>北京最著名的历史文化区之一，由前海、后海、西海组成，周围有许多历史建筑和酒吧。傍晚时分，可以在湖边漫步，感受北京的慢生活。</p>
+                <p><strong>游览时间：</strong> 约2-3小时</p>
+            </div>
+
+            <div class="meal">
+                <h4>晚餐推荐：后海酒吧街</h4>
+                <p>可以在后海酒吧街选择一家临湖餐厅，一边欣赏湖景，一边享用晚餐，度过愉快的夜晚。</p>
+            </div>
+
+            <div class="tips">
+                <h4>今日小贴士</h4>
+                <ul>
+                    <li>南锣鼓巷和后海地区游客较多，周末尤其拥挤，建议提前规划路线。</li>
+                    <li>这些地区是体验老北京生活的好地方，可以慢慢逛，不必赶时间。</li>
+                    <li>后海地区晚上较为热闹，是欣赏北京夜景的好去处。</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-info-circle"></i> 实用信息</h2>
+
+            <h3><i class="fas fa-bus"></i> 交通建议</h3>
+            <p>北京交通发达，地铁网络覆盖主要景点，是游览北京最便捷的方式。</p>
+            <ul>
+                <li><strong>地铁：</strong> 北京地铁覆盖面广，票价2-9元不等，可购买一卡通或使用移动支付。</li>
+                <li><strong>公交：</strong> 票价一般为2元，可使用一卡通或移动支付。</li>
+                <li><strong>出租车：</strong> 起步价13元（3公里），之后每公里2.3元。</li>
+                <li><strong>共享单车：</strong> 城市内随处可见，使用方便，适合短距离出行。</li>
+            </ul>
+
+            <h3><i class="fas fa-bed"></i> 住宿建议</h3>
+            <p>根据行程安排，建议选择位于市中心的住宿，如东城区、西城区或海淀区，交通便利，靠近主要景点。</p>
+            <ul>
+                <li><strong>东城区/西城区：</strong> 靠近故宫、天安门、王府井等景点，交通便利。</li>
+                <li><strong>海淀区：</strong> 靠近颐和园、圆明园、北大清华等景点，环境较为安静。</li>
+                <li><strong>朝阳区：</strong> 现代化程度高，购物、餐饮设施齐全，适合喜欢都市生活的游客。</li>
+            </ul>
+
+            <h3><i class="fas fa-utensils"></i> 美食推荐</h3>
+            <p>北京美食种类丰富，以下是一些不容错过的特色美食：</p>
+            <ul>
+                <li><strong>北京烤鸭：</strong> 全聚德、大董、便宜坊等老字号餐厅。</li>
+                <li><strong>涮羊肉：</strong> 东来顺、老诚一锅等。</li>
+                <li><strong>炸酱面：</strong> 老北京传统面食，可在护国寺小吃或局气馆品尝。</li>
+                <li><strong>豆汁：</strong> 具有特殊风味的老北京饮品，可在前门大街品尝。</li>
+                <li><strong>小吃：</strong> 驴打滚、豌豆黄、艾窝窝等，可在王府井小吃街或南锣鼓巷品尝。</li>
+            </ul>
+
+            <h3><i class="fas fa-shopping-cart"></i> 购物建议</h3>
+            <p>北京有多个购物区和特色商品：</p>
+            <ul>
+                <li><strong>王府井：</strong> 综合性购物区，有百货商场和特色小店。</li>
+                <li><strong>秀水街：</strong> 以销售丝绸、珠宝、工艺品等为主。</li>
+                <li><strong>南锣鼓巷：</strong> 有许多创意小店和文艺礼品店。</li>
+                <li><strong>潘家园旧货市场：</strong> 可以淘到古玩、字画等收藏品。</li>
+                <li><strong>特色商品：</strong> 景泰蓝、北京绢人、宫廷糕点等。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fas fa-lightbulb"></i> 旅行小贴士</h2>
+            <ul>
+                <li><strong>最佳旅游季节：</strong> 春季（4-5月）和秋季（9-10月）是游览北京的最佳时节，气候宜人，景色优美。</li>
+                <li><strong>证件携带：</strong> 随身携带身份证，部分景点和酒店需要登记。</li>
+                <li><strong>网络连接：</strong> 提前准备好移动数据或随身WiFi，方便导航和查询信息。</li>
+                <li><strong>支付方式：</strong> 北京大部分场所支持移动支付，建议提前准备好支付宝或微信支付。</li>
+                <li><strong>景点预约：</strong> 热门景点如故宫需要提前在官网或APP预约门票。</li>
+                <li><strong>交通高峰：</strong> 避开早晚高峰时段乘坐公共交通，减少拥堵。</li>
+                <li><strong>天气变化：</strong> 北京春季温差较大，建议随身携带外套。</li>
+                <li><strong>饮水安全：</strong> 自来水不宜直接饮用，建议购买瓶装水或烧开后饮用。</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p><i class="fas fa-heart"></i> 祝您在北京度过一个愉快的五一假期！</p>
+            <p><i class="fas fa-robot"></i> 本攻略由AI助手生成 © 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
