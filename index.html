@@ -4,54 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>五一北京旅游攻略</title>
-    <!-- 引入Font Awesome图标库 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 使用Unicode符号替代Font Awesome图标以确保兼容性 -->
     <style>
         :root {
-            --primary-color: #c62f2f;
-            --secondary-color: #2b6cb0;
-            --accent-color: #f0b429;
-            --dark-color: #2d3748;
-            --light-color: #f7fafc;
-            --bg-color: #f5f5f5;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
+            --primary-color: #e74c3c;
+            --primary-dark: #c0392b;
+            --secondary-color: #3498db;
+            --secondary-dark: #2980b9;
+            --accent-color: #f39c12;
+            --accent-dark: #e67e22;
+            --success-color: #27ae60;
+            --success-dark: #229954;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --bg-color: #f8f9fa;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --card-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --border-radius: 16px;
+            --gradient-gold: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+            --gradient-blue: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-red: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            --gradient-green: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
         }
 
         body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', system-ui, sans-serif;
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            color: #333;
-            background-color: var(--bg-color);
+            color: var(--dark-color);
+            background: var(--bg-gradient);
             background-attachment: fixed;
-            background-size: 400px;
-            background-color: rgba(245, 245, 245, 0.9);
+            min-height: 100vh;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.95);
+            padding: 24px;
+            background-color: rgba(255, 255, 255, 0.98);
             box-shadow: var(--card-shadow);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-gold);
+            z-index: 1;
         }
 
         header {
             text-align: center;
-            padding: 40px 0;
-            background-image: linear-gradient(to right, #c62f2f, #e74c3c);
+            padding: 60px 40px;
+            background: var(--gradient-red);
             color: white;
-            margin-bottom: 30px;
-            border-radius: 8px;
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
             position: relative;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            background-image: url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
         }
 
         header::before {
@@ -61,7 +85,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to right, rgba(198, 47, 47, 0.8), rgba(231, 76, 60, 0.8));
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             z-index: 1;
         }
 
@@ -72,211 +96,427 @@
 
         h1 {
             margin: 0;
-            font-size: 2.8em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 3.2em;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #ffffff, #f8f8f8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
         }
 
         header p {
-            font-size: 1.2em;
-            margin-top: 10px;
+            font-size: 1.3em;
+            margin-top: 16px;
+            opacity: 0.95;
+            font-weight: 300;
         }
 
         h2 {
             color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 10px;
-            margin-top: 30px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 12px;
+            margin: 40px 0 24px 0;
             display: flex;
             align-items: center;
+            font-size: 1.8em;
+            font-weight: 600;
+            position: relative;
         }
 
-        h2 i {
-            margin-right: 10px;
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
         }
 
         h3 {
             color: var(--secondary-color);
-            margin-top: 25px;
+            margin: 32px 0 16px 0;
             display: flex;
             align-items: center;
-        }
-
-        h3 i {
-            margin-right: 10px;
+            font-size: 1.4em;
+            font-weight: 600;
         }
 
         .day-plan {
-            margin-bottom: 40px;
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
+            margin-bottom: 48px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 32px;
+            border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
             transition: var(--transition);
-            border-top: 5px solid var(--primary-color);
+            border: 1px solid rgba(52, 152, 219, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-plan::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient-blue);
         }
 
         .day-plan:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
         }
 
         .weather-info {
-            background: linear-gradient(to right, #e0f7fa, #f0f8ff);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
+            background: var(--gradient-blue);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            margin-bottom: 32px;
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--card-shadow);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .weather-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
         }
 
         .weather-icon {
-            font-size: 3em;
-            margin-right: 20px;
+            font-size: 3.5em;
+            margin-right: 24px;
             color: var(--accent-color);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .weather-info div {
+            position: relative;
+            z-index: 2;
+        }
+
+        .weather-info p {
+            margin: 4px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .attraction {
-            margin-bottom: 25px;
-            padding: 15px 20px;
-            border-left: 4px solid var(--secondary-color);
-            background-color: rgba(236, 246, 255, 0.5);
-            border-radius: 0 8px 8px 0;
+            margin-bottom: 32px;
+            padding: 24px;
+            border-left: 5px solid var(--secondary-color);
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(255, 255, 255, 0.9) 100%);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .attraction::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 50%;
+            transform: translate(20px, -20px);
             transition: var(--transition);
         }
 
         .attraction:hover {
-            background-color: rgba(236, 246, 255, 0.8);
-            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
+            transform: translateX(8px);
+            box-shadow: 0 8px 32px rgba(52, 152, 219, 0.15);
+        }
+
+        .attraction:hover::before {
+            transform: translate(15px, -15px) scale(1.2);
         }
 
         .attraction h4 {
-            margin: 0 0 10px 0;
+            margin: 0 0 12px 0;
             color: var(--dark-color);
             display: flex;
             align-items: center;
-        }
-
-        .attraction h4 i {
-            margin-right: 8px;
-            color: var(--secondary-color);
+            font-size: 1.2em;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
         }
 
         .meal {
-            background: linear-gradient(to right, #fff8e1, #fffde7);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #f0b429;
+            background: var(--gradient-gold);
+            padding: 20px 24px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            box-shadow: var(--card-shadow);
             transition: var(--transition);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(25px, -25px);
         }
 
         .meal:hover {
-            transform: translateX(5px);
+            transform: translateX(8px) scale(1.02);
+            box-shadow: var(--card-shadow-hover);
         }
 
         .meal h4 {
             display: flex;
             align-items: center;
-            color: #d97706;
+            color: white;
+            margin: 0 0 12px 0;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
         }
 
-        .meal h4 i {
-            margin-right: 8px;
+        .meal p {
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .tips {
-            background: linear-gradient(to right, #fff8e1, #fffde7);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 25px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid var(--accent-color);
+            background: var(--gradient-green);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            margin-top: 32px;
+            box-shadow: var(--card-shadow);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tips::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
         }
 
         .tips h4 {
             margin-top: 0;
-            color: #d97706;
+            color: white;
             display: flex;
             align-items: center;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
         }
 
-        .tips h4 i {
-            margin-right: 8px;
+        .tips ul {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tips li {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .transportation {
-            background: linear-gradient(to right, #e8f5e9, #f1f8e9);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #4caf50;
+            background: var(--gradient-green);
+            padding: 20px 24px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            box-shadow: var(--card-shadow);
             transition: var(--transition);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transportation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(22px, -22px);
         }
 
         .transportation:hover {
-            transform: translateX(5px);
+            transform: translateX(8px);
+            box-shadow: var(--card-shadow-hover);
         }
 
         .transportation p {
             display: flex;
             align-items: center;
-        }
-
-        .transportation i {
-            margin-right: 8px;
-            color: #4caf50;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding: 30px;
-            background: linear-gradient(to right, #2c3e50, #34495e);
+            margin-top: 48px;
+            padding: 40px;
+            background: var(--gradient-blue);
             color: white;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M20 20c0-8.837 7.163-16 16-16s16 7.163 16 16-7.163 16-16 16-16-7.163-16-16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        footer p {
+            position: relative;
+            z-index: 2;
+            margin: 8px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .highlight {
-            font-weight: bold;
+            font-weight: 600;
             color: var(--primary-color);
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         ul li {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             position: relative;
-            padding-left: 5px;
+            padding-left: 8px;
+            line-height: 1.6;
         }
 
         ul li::before {
-            content: '•';
+            content: '●';
             color: var(--primary-color);
             font-weight: bold;
             display: inline-block;
-            margin-right: 8px;
+            margin-right: 12px;
+            font-size: 0.8em;
         }
 
         section {
-            animation: fadeIn 0.8s ease-in-out;
+            animation: fadeInUp 0.8s ease-out;
+            margin-bottom: 32px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 12px;
+                padding: 16px;
+                border-radius: 12px;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2.4em;
+            }
+            
+            .day-plan {
+                padding: 20px;
+                margin-bottom: 32px;
+            }
+            
+            .weather-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .weather-icon {
+                margin-bottom: 12px;
+                margin-right: 0;
+            }
+        }
+
+        /* Enhanced Loading Animation */
+        .container {
+            animation: containerLoad 1s ease-out;
+        }
+
+        @keyframes containerLoad {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-map-marked-alt"></i> 五一北京旅游攻略</h1>
+            <h1>🗺️ 五一北京旅游攻略</h1>
             <p>根据天气合理安排，轻松愉悦的北京之旅</p>
         </header>
 
         <section>
-            <h2><i class="fas fa-route"></i> 行程概览</h2>
+            <h2>🛣️ 行程概览</h2>
             <p>本次北京之旅为期4天，从2025年4月24日至2025年4月27日，涵盖了北京的经典景点、文化体验和美食探索。根据天气预报和景点分布，我们精心安排了以下行程：</p>
             <ul>
                 <li><strong>第一天（4月24日）：</strong> 天安门广场 - 故宫博物院 - 景山公园 - 王府井</li>
@@ -287,26 +527,26 @@
         </section>
 
         <section class="day-plan">
-            <h2><i class="fas fa-calendar-day"></i> 第一天（4月24日，星期四）</h2>
+            <h2>📅 第一天（4月24日，星期四）</h2>
             <div class="weather-info">
-                <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                <div class="weather-icon">☀️</div>
                 <div>
                     <p><strong>天气：</strong> 晴天，气温 8°C - 23°C</p>
                     <p><strong>建议：</strong> 天气晴朗但温差较大，建议穿着轻便衣物并携带外套，注意防晒。</p>
                 </div>
             </div>
 
-            <h3><i class="fas fa-sun"></i> 上午：天安门广场 - 故宫博物院</h3>
+            <h3>🌅 上午：天安门广场 - 故宫博物院</h3>
             <div class="transportation">
-                <p><i class="fas fa-subway"></i> <strong>交通方式：</strong> 乘坐地铁1号线到天安门东站或天安门西站下车</p>
+                <p>🚇 <strong>交通方式：</strong> 乘坐地铁1号线到天安门东站或天安门西站下车</p>
             </div>
             <div class="attraction">
-                <h4><i class="fas fa-monument"></i> 天安门广场</h4>
+                <h4>🏛️ 天安门广场</h4>
                 <p>作为世界上最大的城市中心广场，天安门广场是北京的象征。早晨可以观看庄严的升旗仪式（需提前查询具体时间）。广场上有人民英雄纪念碑、毛主席纪念堂等重要建筑。</p>
                 <p><strong>游览时间：</strong> 约1小时</p>
             </div>
             <div class="attraction">
-                <h4><i class="fas fa-landmark"></i> 故宫博物院</h4>
+                <h4>🏯 故宫博物院</h4>
                 <p>世界上规模最大、保存最完整的木质结构古建筑群，中国明清两代的皇家宫殿。建议从午门进入，神武门出来，按照主轴线参观。</p>
                 <p><strong>游览时间：</strong> 约3-4小时</p>
                 <p><strong>门票信息：</strong> 旺季（4月1日-10月31日）60元/人，需提前在网上预约</p>
@@ -314,35 +554,35 @@
             </div>
 
             <div class="meal">
-                <h4><i class="fas fa-utensils"></i> 午餐推荐：故宫附近</h4>
+                <h4>🍽️ 午餐推荐：故宫附近</h4>
                 <p>可以在故宫周边的餐厅享用午餐，如景山公园东门的老舍茶馆，品尝北京特色小吃。</p>
             </div>
 
-            <h3><i class="fas fa-cloud-sun"></i> 下午：景山公园 - 王府井</h3>
+            <h3>🌤️ 下午：景山公园 - 王府井</h3>
             <div class="attraction">
-                <h4><i class="fas fa-tree"></i> 景山公园</h4>
+                <h4>🌳 景山公园</h4>
                 <p>位于故宫北侧的皇家园林，是俯瞰故宫全景的最佳位置。登上万春亭，可以一览北京中轴线的壮丽景色。</p>
                 <p><strong>游览时间：</strong> 约1小时</p>
                 <p><strong>门票信息：</strong> 2元/人</p>
             </div>
 
             <div class="transportation">
-                <p><i class="fas fa-walking"></i> <strong>交通方式：</strong> 从景山公园步行或乘坐地铁1号线到王府井站</p>
+                <p>🚶 <strong>交通方式：</strong> 从景山公园步行或乘坐地铁1号线到王府井站</p>
             </div>
 
             <div class="attraction">
-                <h4><i class="fas fa-shopping-bag"></i> 王府井步行街</h4>
+                <h4>🛍️ 王府井步行街</h4>
                 <p>北京最著名的商业街，有各种商场、特色小吃和纪念品商店。可以在这里体验现代北京的繁华与活力，也可以品尝各种小吃。</p>
                 <p><strong>游览时间：</strong> 约2-3小时</p>
             </div>
 
             <div class="meal">
-                <h4><i class="fas fa-drumstick-bite"></i> 晚餐推荐：王府井美食</h4>
+                <h4>🍗 晚餐推荐：王府井美食</h4>
                 <p>可以在王府井小吃街品尝各种北京特色小吃，如驴打滚、豌豆黄、炒肝等，或者选择全聚德、东来顺等老字号餐厅品尝北京烤鸭。</p>
             </div>
 
             <div class="tips">
-                <h4><i class="fas fa-lightbulb"></i> 今日小贴士</h4>
+                <h4>💡 今日小贴士</h4>
                 <ul>
                     <li>故宫参观需要大量步行，穿着舒适的鞋子很重要。</li>
                     <li>故宫内饮食选择有限且价格较高，可以自带水和小零食。</li>
@@ -352,9 +592,9 @@
         </section>
 
         <section class="day-plan">
-            <h2><i class="fas fa-calendar-day"></i> 第二天（4月25日，星期五）</h2>
+            <h2>📅 第二天（4月25日，星期五）</h2>
             <div class="weather-info">
-                <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                <div class="weather-icon">☀️</div>
                 <div>
                     <p><strong>天气：</strong> 晴天，气温 11°C - 24°C</p>
                     <p><strong>建议：</strong> 天气晴朗，适合户外活动，建议做好防晒措施。</p>
@@ -412,9 +652,9 @@
         </section>
 
         <section class="day-plan">
-            <h2><i class="fas fa-calendar-day"></i> 第三天（4月26日，星期六）</h2>
+            <h2>📅 第三天（4月26日，星期六）</h2>
             <div class="weather-info">
-                <div class="weather-icon"><i class="fas fa-cloud-sun"></i></div>
+                <div class="weather-icon">⛅</div>
                 <div>
                     <p><strong>天气：</strong> 多云，气温 14°C - 27°C</p>
                     <p><strong>建议：</strong> 天气较好但可能有云，登长城时注意防晒并带上薄外套。</p>
@@ -473,9 +713,9 @@
         </section>
 
         <section class="day-plan">
-            <h2><i class="fas fa-calendar-day"></i> 第四天（4月27日，星期日）</h2>
+            <h2>📅 第四天（4月27日，星期日）</h2>
             <div class="weather-info">
-                <div class="weather-icon"><i class="fas fa-sun"></i></div>
+                <div class="weather-icon">☀️</div>
                 <div>
                     <p><strong>天气：</strong> 晴天，气温 14°C - 25°C</p>
                     <p><strong>建议：</strong> 天气晴朗，适合户外活动，建议做好防晒措施。</p>
@@ -530,9 +770,9 @@
         </section>
 
         <section>
-            <h2><i class="fas fa-info-circle"></i> 实用信息</h2>
+            <h2>ℹ️ 实用信息</h2>
 
-            <h3><i class="fas fa-bus"></i> 交通建议</h3>
+            <h3>🚌 交通建议</h3>
             <p>北京交通发达，地铁网络覆盖主要景点，是游览北京最便捷的方式。</p>
             <ul>
                 <li><strong>地铁：</strong> 北京地铁覆盖面广，票价2-9元不等，可购买一卡通或使用移动支付。</li>
@@ -541,7 +781,7 @@
                 <li><strong>共享单车：</strong> 城市内随处可见，使用方便，适合短距离出行。</li>
             </ul>
 
-            <h3><i class="fas fa-bed"></i> 住宿建议</h3>
+            <h3>🏨 住宿建议</h3>
             <p>根据行程安排，建议选择位于市中心的住宿，如东城区、西城区或海淀区，交通便利，靠近主要景点。</p>
             <ul>
                 <li><strong>东城区/西城区：</strong> 靠近故宫、天安门、王府井等景点，交通便利。</li>
@@ -549,7 +789,7 @@
                 <li><strong>朝阳区：</strong> 现代化程度高，购物、餐饮设施齐全，适合喜欢都市生活的游客。</li>
             </ul>
 
-            <h3><i class="fas fa-utensils"></i> 美食推荐</h3>
+            <h3>🍽️ 美食推荐</h3>
             <p>北京美食种类丰富，以下是一些不容错过的特色美食：</p>
             <ul>
                 <li><strong>北京烤鸭：</strong> 全聚德、大董、便宜坊等老字号餐厅。</li>
@@ -559,7 +799,7 @@
                 <li><strong>小吃：</strong> 驴打滚、豌豆黄、艾窝窝等，可在王府井小吃街或南锣鼓巷品尝。</li>
             </ul>
 
-            <h3><i class="fas fa-shopping-cart"></i> 购物建议</h3>
+            <h3>🛒 购物建议</h3>
             <p>北京有多个购物区和特色商品：</p>
             <ul>
                 <li><strong>王府井：</strong> 综合性购物区，有百货商场和特色小店。</li>
@@ -571,7 +811,7 @@
         </section>
 
         <section>
-            <h2><i class="fas fa-lightbulb"></i> 旅行小贴士</h2>
+            <h2>💡 旅行小贴士</h2>
             <ul>
                 <li><strong>最佳旅游季节：</strong> 春季（4-5月）和秋季（9-10月）是游览北京的最佳时节，气候宜人，景色优美。</li>
                 <li><strong>证件携带：</strong> 随身携带身份证，部分景点和酒店需要登记。</li>
@@ -585,8 +825,8 @@
         </section>
 
         <footer>
-            <p><i class="fas fa-heart"></i> 祝您在北京度过一个愉快的五一假期！</p>
-            <p><i class="fas fa-robot"></i> 本攻略由AI助手生成 © 2025</p>
+            <p>❤️ 祝您在北京度过一个愉快的五一假期！</p>
+            <p>🤖 本攻略由AI助手生成 © 2025</p>
         </footer>
     </div>
 </body>
